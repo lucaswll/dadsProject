@@ -1,0 +1,138 @@
+.list_client_page {
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 30px;
+    margin: 32px auto;
+}
+.list_client_page header {
+    padding-left: 37px;
+    font-size: 18px;
+}
+
+.list_client_page header a {
+    width: 8%;
+    color: #6633cc;
+    font-weight: bold;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+}
+
+.list_client_page header a svg {
+    margin-right: 8px;
+    color: #6633CC;
+}
+
+.list_client_page .after_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list_client_page .after_header span {
+    font-size: 30px;
+    margin-left: 40px;
+}
+
+.list_client_page .after_header img {
+    height: 64px;
+}
+
+.list_client_page .after_header a {
+    width: 260px;
+    margin-left: auto;
+    margin-top: 0;
+}
+
+.list_client_page .after_header button {
+    height: 50px;
+    width: 50px;
+    border-radius: 4px;
+    border: 2px solid #dcdce6;
+    background: transparent;
+    transition: border-color 0.4s;
+    cursor: pointer;
+}
+
+.list_client_page .after_header button svg{
+    color: #000;
+}
+
+.list_client_page .after_header button:hover{
+    border-color: #6633cc;
+}
+
+.list_client_page h1 {
+    margin-top: 80px;
+    margin-bottom: 24px;
+}
+
+.list_client_page ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 24px;
+    list-style: none;
+}
+
+.list_client_page ul li{
+    background: #f0f0f5;
+    padding: 24px;
+    border-radius: 8px;
+    position: relative;
+    
+    box-shadow: 0 0 100px rgba(102, 51, 204, 0.3);
+    border-radius: 12px;
+}
+
+.list_client_page ul li section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list_client_page ul li button{
+    height: 50px;
+    width: 50px;
+    border-radius: 4px;
+    border: 2px solid #dcdce6;
+    background: transparent;
+    transition: border-color 0.4s;
+    cursor: pointer;
+}
+
+.list_client_page ul li button:hover{
+    opacity: 0.8;
+    border-color: #c40233;
+}
+
+.list_client_page ul li .button2 {
+    height: 50px;
+    width: 50px;
+    border-radius: 4px;
+    border: 2px solid #dcdce6;
+    background: transparent;
+    transition: border-color 0.4s;
+    cursor: pointer;
+}
+
+.list_client_page ul li .button2:hover{
+    opacity: 0.8;
+    border-color: #36ff26;
+}
+
+.list_client_page ul li strong{
+    display: block;
+    margin-bottom: 16px;
+    color: #41414f;
+}
+
+.list_client_page ul li p + strong{
+    margin-top: 25px;
+}
+
+.list_client_page ul li p{
+    color: #737380;
+    line-height: 18px;
+    font-size: 18px;
+}

@@ -60,20 +60,75 @@ class SalesController {
     async listSpecificSale(request: Request, response: Response){
         const { id } = request.params
 
-        const sale = await connectionDB('sales').where('id', id).first()
+        const sale = await connectionDB('sales')
+            .where('id', id)
+            .first()
 
         if(!sale){
             return response.status(400).json({ message: 'Sale not found' })
         }
 
-        const id_client = sale.id_client
-        const client = await connectionDB('clients').where('id', id_client).first()          
+        const client = await connectionDB('clients')
+            .where('id', sale.id_client)
+            .first()
+            .select('id','name')
 
-        const prods = await connectionDB('sales')
-            .where('id_client','id')
-            .select('*')
+        /*const id_prodSale = await connectionDB('sales_products')
+            .where('sales_products.id_sales', id)
+            .select('id_prodSale') // retorna os ids do prodsale. Quero agora pegar os id_product/qty relacionado a cada uma ↓
+        */
 
-        return response.json({sale, client, prods})
+        const info_prods = await connectionDB('product_sale')
+            .join('sales_products', 'product_sale.id', '=', 'sales_products.id_prodSale')
+            .where('sales_products.id_sales', id)
+            .select('product_sale.id_product', 'product_sale.qty')
+
+        const id_prods = info_prods.map(values => {    
+            const vectorIds = values.id_product 
+
+            return vectorIds
+        })
+
+        const commission = await connectionDB('product_sale')
+            .join('products', 'product_sale.id_product', '=', 'products.id')
+            .whereIn('product_sale.id_product', id_prods) //era so usar o IN MAAANO! PQP
+            .select('products.commission')
+
+        const price = await connectionDB('product_sale')
+            .join('products', 'product_sale.id_product', '=', 'products.id')
+            .whereIn('product_sale.id_product', id_prods) //era so usar o IN MAAANO! PQP
+            .select('products.price')
+
+        //valueSale = product_sale.qty * products.price
+        //commissionSale = product_sale.qty * products.commission
+
+        const vectorPrice = price.map(values => {
+            const vecPrice = values.price
+
+            return vecPrice
+        })
+
+        const vectorQties = info_prods.map(values => {    
+            const vecQties = values.qty
+
+            return vecQties
+        })
+
+        const vectorCommission = commission.map(values => {
+            const vecComm = values.commission
+
+            return vecComm
+        })
+
+        let valueSale = 0
+        let commissionSale = 0
+
+        for(let i=0; i < id_prods.length; i++){ //preciso de um jeito +clean, pq to pegando os selects e dando um map pra fazer um vetor pros calculos
+            valueSale = valueSale + vectorQties[i] * vectorPrice[i]
+            commissionSale = commissionSale + vectorQties[i] * vectorCommission[i]
+        }
+       
+        return response.json({sale, client, info_prods, valueSale, commissionSale})
     }
 }
 

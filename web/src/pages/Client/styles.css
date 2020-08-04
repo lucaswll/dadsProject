@@ -1,0 +1,140 @@
+body {
+    background: #f0f0ff;
+}
+
+#create_client_page {
+    width: 100%;
+    max-width: 1120px;
+    height: 97vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#create_client_page .content {
+    width: 67%;
+    padding: 10px;
+    background: #f0f0f5;
+    box-shadow: 0 0 100px rgba(102, 51, 204, 0.7);
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#create_client_page .content main header {
+    margin-top: 28px;
+    font-size: 18px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#create_client_page .content main header a {
+    width: 15%;
+    color: #6633cc;
+    font-weight: bold;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+}
+
+#create_client_page .content main header a svg {
+    margin-right: 8px;
+    margin-left: 10px;
+    color: #6633CC;
+}
+
+#create_client_page .content main form fieldset {
+    margin-top: 20px;
+    min-inline-size: auto;
+    border: 0;
+}
+
+#create_client_page .content main form legend {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+#create_client_page .content main form h1 {
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+#create_client_page .content main form h2 {
+    font-size: 20px;
+}
+
+#create_client_page .content main form .field-group {
+    flex: 1;
+    display: flex;
+}
+
+#create_client_page .content main form .field {
+    flex: 1;
+  
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;    
+}
+
+#create_client_page .content main form .field input[type=text] {
+    flex: 1;
+    background: #dcdceb;
+    border-radius: 8px;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    color: #3b3b46;
+    margin-top: 8px;
+}
+
+#create_client_page .content main form .field select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    flex: 1;
+    background: #dcdceb;
+    border-radius: 8px;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    color: #3b3b46;
+}
+
+#create_client_page .content main form .field label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#create_client_page .content main form .field-group .field + .field {
+    margin-left: 24px;
+}
+
+#create_client_page .content main form button {
+    width: 260px;
+    height: 56px;
+    background: #6633CC;
+    border-radius: 8px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    margin-top: 35px;
+    margin-left: 15px;
+    transition: background-color 0.4s;
+    cursor: pointer;
+}
+
+#create_client_page .content main form button:hover {
+    background: #8964d1;
+}
+
